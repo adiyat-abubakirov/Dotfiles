@@ -1,0 +1,169 @@
+@theme "gruvbox"
+configuration {
+    kb-primary-paste: "";
+    kb-secondary-paste: "";
+    kb-clear-line: "";
+    kb-move-front: "";
+    kb-move-end: "";
+    kb-move-word-back: "";
+    kb-move-word-forward: "";
+    kb-move-char-back: "";
+    kb-move-char-forward: "";
+    kb-remove-word-back: "";
+    kb-remove-word-forward: "";
+    kb-remove-char-forward: "";
+             kb-remove-char-back: "BackSpace";
+    kb-remove-to-eol: "";
+    kb-remove-to-sol: "";
+             kb-accept-entry: "Return";
+    kb-accept-custom: "";
+    kb-accept-custom-alt: "";
+    kb-accept-alt: "";
+    kb-delete-entry: "";
+             kb-mode-next: "Control+Alt+l";
+             kb-mode-previous: "Control+Alt+h";
+    kb-mode-complete: "";
+             kb-row-left: "Alt+h";
+             kb-row-right: "Alt+l";
+             kb-row-up: "Alt+k";
+             kb-row-down: "Alt+j";
+    kb-row-tab: "";
+    kb-page-prev: "";
+    kb-page-next: "";
+             kb-row-first: "Alt+i";
+             kb-row-last: "Alt+[59]";
+    kb-row-select: "";
+    kb-screenshot: "";
+    kb-ellipsize: "";
+    kb-toggle-case-sensitivity: "";
+    kb-toggle-sort: "";
+             kb-cancel: "Alt+q";
+    kb-custom-1: "";
+    kb-custom-2: "";
+    kb-custom-3: "";
+    kb-custom-4: "";
+    kb-custom-5: "";
+    kb-custom-6: "";
+    kb-custom-7: "";
+    kb-custom-8: "";
+    kb-custom-9: "";
+    kb-custom-10: "";
+    kb-custom-11: "";
+    kb-custom-12: "";
+    kb-custom-13: "";
+    kb-custom-14: "";
+    kb-custom-15: "";
+    kb-custom-16: "";
+    kb-custom-17: "";
+    kb-custom-18: "";
+    kb-custom-19: "";
+    kb-select-1: "";
+    kb-select-2: "";
+    kb-select-3: "";
+    kb-select-4: "";
+    kb-select-5: "";
+    kb-select-6: "";
+    kb-select-7: "";
+    kb-select-8: "";
+    kb-select-9: "";
+    kb-select-10: "";
+    ml-row-left: "";
+    ml-row-right: "";
+    ml-row-up: "";
+    ml-row-down: "";
+    me-select-entry: "";
+    me-accept-entry: "";
+    me-accept-custom: "";
+    modi: "drun,window";
+    lines: 5;
+    font: "JetBrainsMono Nerd Font 13";
+    show-icons: true;
+    icon-theme: "Gruvbox-Plus-Dark";
+    terminal: "kitty";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-drun: "apps ";
+    display-window: "windows ";
+    sidebar-mode: true;
+}
+
+element-text, element-icon , mode-switcher {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+window {
+    width: 878px;
+    height: 562px;
+    border: 3px;
+    padding: 0px;
+    border-color: @border-col;
+    background-color: @bg-col;
+}
+
+mainbox {
+    background-color: @bg-col;
+    children: [inputbar, listview, mode-switcher]; 
+}
+
+inputbar {
+    children: [prompt,entry];
+    background-color: @bg-col;
+    border-radius: 0px;
+    padding: 3px;
+}
+
+prompt {
+    background-color: @selected;
+    padding: 8px;
+    text-color: @bg-col;
+    border-radius: 0px;
+    margin: 26px 0px 0px 26px;
+}
+
+textbox-prompt-colon {
+    expand: false;
+    str: ":";
+    padding: 0px;
+}
+
+entry {
+    padding: 8px;
+    margin: 26px 26px 0px 8px;
+    text-color: @fg-col;
+    background-color: @bg-col;
+    blink: false;
+}
+
+listview {
+    padding: 0px;
+    margin: 15px 47px 47px 47px;
+    columns: 2;
+    background-color: @bg-col;
+}
+
+element {
+    padding: 8px;
+    background-color: @bg-col;
+    text-color: @fg-col2;
+}
+
+element-icon {
+    size: 17px;
+}
+
+element selected {
+    background-color: @selected;
+    text-color: @bg-col;
+    border-radius: 0px;
+}
+
+mode-switcher {
+    spacing: 0;
+}
+
+button, button selected {
+    enabled: false;
+}

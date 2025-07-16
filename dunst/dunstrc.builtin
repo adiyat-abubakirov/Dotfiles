@@ -1,0 +1,57 @@
+[global]
+  monitor = 0
+  follow = mouse
+  shrink = no
+  padding = 34
+  horizontal_padding = 34
+  
+  width = (0,650)
+  height = 800
+  offset = 8x56
+  origin = top-right
+
+  frame_width = 4
+  separator_height = 2
+  frame_color = "#8ec07c"
+  separator_color = "#8ec07c"
+
+  sort = no
+  font = JetBrainsMono Nerd Font 19
+  markup = full
+  format = "<b>%s</b>\n%b"
+  alignment = left
+  show_age_threshold = 60
+  word_wrap = yes
+  ignore_newline = no
+  stack_duplicates = true
+  hide_duplicate_count = no
+  show_indicators = yes
+
+  icon_position = off
+  sticky_history = no
+  history_length = 6
+  title = Dunst
+  class = Dunst
+  corner_radius = 0
+
+  mouse_left_click = close_current
+  mouse_middle_click = do_action
+  mouse_right_click = close_all
+
+[urgency_low]
+  background = "#1d2021"
+  frame_color = "#b8bb26"
+  foreground = "#fbf1c7"
+  timeout = 5
+
+[urgency_normal]
+  background = "#1d2021"
+  frame_color = "#fabd2f"
+  foreground = "#fbf1c7"
+  timeout = 5
+
+[urgency_critical]
+  background = "#1d2021"
+  frame_color = "#fb4934"
+  foreground = "#fbf1c7"
+  timeout = 10

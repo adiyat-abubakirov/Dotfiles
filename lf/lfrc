@@ -1,0 +1,213 @@
+# Basic settings
+set previewer ~/.config/lf/lf-kitty-preview.sh
+set cleaner ~/.config/lf/lf-kitty-clean.sh
+set icons true
+set history on
+set truncatechar "…"
+set ignorecase true
+set shell bash
+set nohidden
+set preview
+set ratios 1:2:3
+set nodrawbox
+set filesep "\n" # use nul-separation for multiple selections
+set timefmt "  Mon, Jan _2  15:04:05 2006"
+set period 1 # check directory timestamps every second
+
+# Custom functions
+# open file with specific program
+cmd openseparately &{{
+  file="$f"
+  case "$(basename "$file" | tr '[:upper:]' '[:lower:]')" in
+  *.avi | *.mp4 | *.mkv | *.webm | *.mp3 | *.mov | *.mpg | *.gif)
+    mpv "$file"
+  ;;
+  *.pdf)
+    evince "$file"
+  ;;
+  *.odt | *.ods | *.odp | *.odg | *.odf | *.odb | *.doc | *.docx | *.ppt | *.pptx)
+    libreoffice "$file"
+  ;;
+  *.jpg | *.jpeg | *.png | *.bmp | *.tiff | *.heic)
+    feh -F "$file"
+  ;;
+  *.svg)
+    temp="$HOME/.cache/temp.png"
+    convert "$file" "$temp"
+    feh -F "$temp"
+  ;;
+  *)
+    kitty $EDITOR "$file"
+  ;;
+  esac
+}}
+
+# copy image
+cmd copyimage &{{
+  xclip -selection clipboard -t image/png -i "$f"
+}}
+
+# make new directory
+cmd makedirectory ${{
+  printf "Directory Name: "
+  read ans
+  mkdir "$ans"
+}}
+
+# make new file
+cmd makefile ${{
+  printf "File Name: "
+  read ans
+  kitty $EDITOR "$ans"
+}}
+
+# unarchive
+cmd unarchive &{{
+  unp -U "$f"
+}}
+
+# go into directory but not into file
+cmd downdir %{{
+	if [ -d "$f" ]; then
+		lf -remote "send $id open"
+	fi
+}}
+
+# go into external storage directory
+cmd goToMedia %{{
+	name="${HOME##*/}"
+	lf -remote "send $id cd /media/$name"
+}}
+
+# go back to old directory
+cmd goToPrev %{{
+	lf -remote "send $id cd '$OLDPWD'"
+}}
+
+cmd disablepreview %{{
+   lf -remote "send $id set preview!"
+   ~/.config/lf/lf-kitty-clean.sh
+}}
+
+# Trash bindings
+cmd trash ${{
+  files=$(printf "$fx" | tr '\n' ';')
+  while [ "$files" ]; do
+    file=${files%%;*}
+
+    trash-put "$(basename "$file")"
+    if [ "$files" = "$file" ]; then
+      files=''
+    else
+      files="${files#*;}"
+    fi
+  done
+}}
+cmd restore_trash ${{
+  trash-restore
+}}
+
+# finder
+cmd finder ${{
+  location="$(fzf)"
+  if [ -n "$location" ]; then
+    lf -remote "send $id select $location"
+  fi
+}}
+
+cmd fnameex ${{
+  printf "What exact name to search for?\n"
+  read ans
+  location="$(find / -name "$ans" 2>/dev/null | fzf)"
+  if [ -n "$location" ]; then
+    lf -remote "send $id select $location"
+  fi
+}}
+
+cmd fpathex ${{
+  printf "What exact path to search for?\n"
+  read ans
+  location="$(find / -path "$ans" 2>/dev/null | fzf)"
+  if [ -n "$location" ]; then
+    lf -remote "send $id select $location"
+  fi
+}}
+
+cmd fname ${{
+  printf "What name to search for?\n"
+  read ans
+  location="$(find / -name "*$ans*" 2>/dev/null | fzf)"
+  if [ -n "$location" ]; then
+    lf -remote "send $id select $location"
+  fi
+}}
+
+cmd fpath ${{
+  printf "What path to search for?\n"
+  read ans
+  location="$(find / -path "*$ans*" 2>/dev/null | fzf)"
+  if [ -n "$location" ]; then
+    lf -remote "send $id select $location"
+  fi
+}}
+
+cmd mount ${{
+  lsblk
+  printf "What disk to mount?\n"
+  read ans
+  udisksctl mount -b /dev/"$ans"
+}}
+
+cmd unmount ${{
+  lsblk
+  printf "What disk to unmount?\n"
+  read ans
+  udisksctl unmount -b /dev/"$ans"
+  udisksctl power-off -b /dev/"$ans"
+}}
+
+cmd ld ${{
+  lsblk | less
+}}
+
+# Mappings
+map d
+map q
+map g
+map f
+map i
+map w
+# map / finder
+map fn fname
+map fen fnameex
+map fp fpath
+map fep fpathex
+map <enter> openseparately
+map qa unarchive
+map qf makefile
+map qd makedirectory
+map qi copyimage
+map qm mount
+map qu unmount
+map ql ld
+map J push 6<down>
+map K push 6<up>
+map <a-q> quit
+map dd trash
+map dr restore_trash
+map . set hidden!
+map , disablepreview
+map x cut
+map p paste
+map y copy
+map gc cd ~/.config
+map gd cd ~/Downloads
+map gi cd ~/Images
+map gp cd ~/Physics
+map gm goToMedia
+map gn goToPrev
+map h updir
+map j down
+map k up
+map l downdir
+map R reload

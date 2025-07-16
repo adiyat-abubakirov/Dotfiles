@@ -1,0 +1,96 @@
+font_size                           17
+font_family                         family='JetBrainsMono Nerd Font' postscript_name=JetBrainsMonoNF-Regular
+bold_font                           family='JetBrainsMono Nerd Font' postscript_name=JetBrainsMonoNF-Bold
+italic_font                         family='JetBrainsMono Nerd Font' postscript_name=JetBrainsMonoNF-Italic
+bold_italic_font                    family='JetBrainsMono Nerd Font' postscript_name=JetBrainsMonoNF-BoldItalic
+disable_ligatures                   never
+
+cursor_shape                        block
+shell_integration                   no-cursor
+cursor_shape_unfocused              hollow
+cursor_blink_interval               0
+scrollback_indicator_opacity        0.0
+scrollback_pager_history_size       1024
+confirm_os_window_close             -1
+
+url_style                           curly
+url_prefixes                        file ftp ftps gemini git gopher http https irc ircs kitty mailto news sftp ssh
+detect_urls                         yes
+show_hyperlink_targets              yes
+
+repaint_delay                       8
+input_delay                         8
+sync_to_monitor                     yes
+
+enable_audio_bell                   no
+visual_bell_duration                0.0
+window_alert_on_bell                no
+
+remember_window_size                no
+window_padding_width                8
+
+tab_bar_edge                        bottom
+tab_bar_style                       separator
+tab_bar_align                       left
+tab_separator                       " ┇"
+
+background_opacity                  1.0
+background_image                    none
+dynamic_background_opacity          no
+
+close_on_child_death                no
+allow_remote_control                no
+listen_on                           none
+startup_session                     none
+clipboard_max_size                  1024
+allow_hyperlinks                    yes
+notify_on_cmd_finish                never
+term                                xterm-kitty
+linux_display_server                x11
+update_check_interval               0
+
+map ctrl+equal change_font_size all +1.0
+map ctrl+minus change_font_size all -1.0
+
+# Colorscheme gruvbox-dark medium
+cursor                  #b8bb26
+cursor_text_color       #1d2021
+
+url_color               #fabd2f
+
+foreground              #ebdbb2
+background              #1d2021
+selection_foreground    #1d2021
+selection_background    #98971a
+
+# black  (bg3/bg4)
+color0                  #1d2021
+color8                  #504945
+
+# red
+color1                  #fb4934
+color9                  #cc241d
+
+#: green
+color2                  #b8bb26
+color10                 #98971a
+
+# orange
+color3                  #fe8019
+color11                 #d65d0e
+
+# blue
+color4                  #83a598
+color12                 #458588
+
+# purple
+color5                  #d3869b
+color13                 #b16286
+
+# aqua
+color6                  #8ec07c
+color14                 #689d6a
+
+# white (fg4/fg3)
+color7                  #928374
+color15                 #ebdbb2

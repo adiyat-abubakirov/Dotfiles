@@ -1,0 +1,7 @@
+* {
+    bg-col:  #1d2021;
+    border-col: #8ec07c;
+    selected: #b8bb26;
+    fg-col: #fbf1c7;
+    fg-col2: #d5c4a1;
+}

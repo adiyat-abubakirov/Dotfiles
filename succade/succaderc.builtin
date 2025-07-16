@@ -1,0 +1,81 @@
+[bar]
+name = "succade"
+blocks = "desktop | cpu-temp mem cpu-usage | bluetooth lang volume battery datetime"
+height = 48
+force = false
+foreground = "#fbf1c7"
+line-color = "#fbf1c7"
+background = "#1d2021"
+underline = false
+line-width = 4
+block-prefix = ""
+block-suffix = ""
+separator = "   "
+font = "JetBrainsMonoNerdFont-Regular:size=17"
+label-font = "JetBrainsMonoNerdFontPropo-Regular:size=17"
+affix-font = "JetBrainsMonoNerdFont-Regular:size=17"
+
+[desktop]
+command = "$HOME/.config/succade/workspaces.sh"
+raw = true
+trigger = "bspc subscribe"
+line-color = "#98971a"
+
+[cpu-temp]
+command = "$HOME/.config/succade/cpu-temp.sh"
+raw = true
+label = " "
+label-foreground = "#458588"
+interval = 60
+
+[mem]
+command = "$HOME/.config/succade/mem.sh"
+raw = true
+label = " "
+label-foreground = "#d79921"
+interval = 60
+
+[cpu-usage]
+command = "$HOME/.config/succade/cpu-usage.sh"
+raw = true
+label = " "
+label-foreground = "#fe8019"
+interval = 60
+
+[bluetooth]
+command = "$HOME/.config/succade/bluetooth.sh"
+raw = true
+interval = 2
+
+[lang]
+command = "$HOME/.config/succade/lang.sh"
+raw = true
+label = " "
+label-foreground = "#fabd2f"
+interval = 1
+
+[volume]
+command = "$HOME/.config/succade/audio.sh"
+raw = true
+interval = 2
+
+[battery]
+command = "$HOME/.config/succade/battery.sh"
+raw = true
+label-foreground = "#689d6a"
+interval = 2
+
+[wifi]
+command = "$HOME/.config/succade/wifi.sh"
+raw = true
+label = " "
+label-foreground = "#b8bb26"
+interval = 0
+
+[datetime]
+command = "date +'%{F#fbf1c7}%a, %b %-d%{F#98971a}  %{+u}▎%{F#fbf1c7}%-I:%M %p %{-u}'"
+raw = true
+label = " "
+interval = 1
+label-foreground = "#b8bb26"
+line-color = "#98971a"

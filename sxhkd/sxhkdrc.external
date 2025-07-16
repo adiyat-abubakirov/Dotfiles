@@ -1,0 +1,107 @@
+# launch calculator
+super + o
+	bspc rule -a kitty -o state=floating && kitty -o initial_window_height=500 -o initial_window_width=300 qalc
+
+# launch calendar
+super + m
+	bspc rule -a kitty -o state=floating && kitty -o confirm_os_window_close=0 -o font_size=14 -o initial_window_height=698 -o initial_window_width=720 --hold echo "$(cal -A 4 -B 4 | sed -E '/^[[:blank:]]+[[:digit:]]+$/d' | sed 's/..$//')"
+
+# launch big calculator
+super + p
+	kitty qalc
+
+# launch lf
+super + n
+  $HOME/.config/sxhkd/kitty.sh $HOME/.config/lf/lf-kitty
+
+# launch powermenu.sh
+{XF86PowerOff, Pause}
+	$HOME/.config/rofi/powermenu.sh
+
+# launch kitty
+super + Return
+  $HOME/.config/sxhkd/kitty.sh
+
+# launch neovim
+super + u
+	kitty nvim -u $HOME/.config/nvim/init.lua
+
+# launch firefox
+super + i
+	firefox
+
+# launch private firefox
+super + b
+	firefox --private-window
+
+# launch in new firefox window the book website
+super + y
+  obsidian
+
+# switch language
+F5
+  $HOME/.config/sxhkd/lang.sh
+
+# program launcher
+super + space
+	rofi -normal-window -show drun
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd; dunstify -u low 'sxhkd' 'Reloaded config' -t 1500
+
+# turn bluetooth and  connect headphones
+{XF86Tools, XF86AudioMicMute, F4}
+  $HOME/.config/sxhkd/bluetooth.sh
+
+# fullscreen screenshot
+shift + {F12,XF86Calculator}
+	flameshot full
+
+# screenshot
+{F12,XF86Calculator}
+	flameshot gui
+
+#volume controls
+XF86Audio{Mute,RaiseVolume,LowerVolume}
+	$HOME/.config/sxhkd/audio.sh {toggleMute,up,down}
+
+# quit/restart bspwm
+super + alt + {q,r}
+	bspc {quit,wm -r}
+
+# close and kill
+super + c
+	bspc node -c
+
+# alternate between the tiled and monocle layout
+super + v
+	bspc node -t {floating,tiled}
+
+# focus to the given desktop
+alt + {1-9,0}
+	bspc desktop -f '^{1-9,10}'
+
+# send to the given desktop
+alt + shift + {1-9,0}
+	bspc node -d '^{1-9,10}' --follow
+
+# preselect the direction
+super + ctrl + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+# cancel the preselection for the focused desktop
+super + ctrl + shift + space
+	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+# expand a window by moving one of its side outward
+super + alt + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+super + alt + shift + {h,j,k,l}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# focus the node in the given direction
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
