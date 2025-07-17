@@ -34,10 +34,6 @@ super + i
 super + b
 	firefox --private-window
 
-# launch in new firefox window the book website
-super + y
-  obsidian
-
 # switch language
 F5
   $HOME/.config/sxhkd/lang.sh

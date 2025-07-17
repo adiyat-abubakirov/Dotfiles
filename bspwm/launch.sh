@@ -9,7 +9,6 @@ setupExternalMonitor() { # set apps dimensions for external monitor
 	ln -sfT $HOME/.config/sxhkd/sxhkdrc.external $HOME/.config/sxhkd/sxhkdrc
 	ln -sfT $HOME/.config/rofi/config.rasi.external $HOME/.config/rofi/config.rasi
 	ln -sfT $HOME/.config/rofi/powermenu.rasi.external $HOME/.config/rofi/powermenu.rasi
-	ln -sfT $HOME/.config/obsidian/b74bf8887eced4a0.json.external $HOME/.config/obsidian/b74bf8887eced4a0.json
 	ln -sfT $HOME/.config/gtk-3.0/settings.ini.external $HOME/.config/gtk-3.0/settings.ini
 	ln -sfT $HOME/.mozilla/firefox/0kd4sopq.default/user.js.external $HOME/.mozilla/firefox/0kd4sopq.default/user.js
 }
@@ -20,7 +19,6 @@ setupBuiltInMonitor() { # set apps dimensions for builtin monitor
 	ln -sfT $HOME/.config/sxhkd/sxhkdrc.builtin $HOME/.config/sxhkd/sxhkdrc
 	ln -sfT $HOME/.config/rofi/config.rasi.builtin $HOME/.config/rofi/config.rasi
 	ln -sfT $HOME/.config/rofi/powermenu.rasi.builtin $HOME/.config/rofi/powermenu.rasi
-	ln -sfT $HOME/.config/obsidian/b74bf8887eced4a0.json.builtin $HOME/.config/obsidian/b74bf8887eced4a0.json
 	ln -sfT $HOME/.config/gtk-3.0/settings.ini.builtin $HOME/.config/gtk-3.0/settings.ini
 	ln -sfT $HOME/.mozilla/firefox/0kd4sopq.default/user.js.builtin $HOME/.mozilla/firefox/0kd4sopq.default/user.js
 }
