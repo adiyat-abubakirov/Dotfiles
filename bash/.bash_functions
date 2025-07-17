@@ -100,12 +100,10 @@ fpath() {
 	fi
 }
 
-# Credit: Chris Titus Tech
 apt() {
 	command nala "$@"
 }
 
-# Credit: Chris Titus Tech
 sudo() {
 	if [ "$1" = "apt" ]; then
 		shift

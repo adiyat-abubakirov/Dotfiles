@@ -16,7 +16,6 @@ alias c-saving='sudo cpupower frequency-set -g ondemand -d 0.001G -u 1.5G && sud
 alias c-powersupply='sudo cpupower frequency-set -g ondemand -d 0.001G -u 3.8G && sudo echo -n 153 | sudo tee /sys/class/backlight/amdgpu_bl0/brightness && echo "/255 - brightness"'
 alias c-frequency='cpufreq-info | grep "current CPU" | cut -b 28-'
 
-# Credit: Chris Titus Tech
 # cd
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -57,13 +56,12 @@ alias tp='trash-put'
 alias thist='trash-list | tr "\n" "\0" | sort -z | tr "\0" "\n"'
 alias trs='trash-restore'
 
-# Credit: Chris Titus Tech
 # Add an "alert" alias for long running commands.  Use like so:
 # sleep 10; alert
 alias alert='dunstify --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # other
-alias lf=". $HOME/.config/lf/lf-kitty"
+alias lf=". $HOME/.config/lf/lf-kitty.sh"
 alias dl='lsblk'
 alias mkdir='mkdir -p'
 alias cp='cp -ir'
