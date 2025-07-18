@@ -34,6 +34,10 @@ super + i
 super + b
 	firefox --private-window
 
+# launch obsidian
+super + y
+  obsidian
+
 # switch language
 F5
   $HOME/.config/sxhkd/lang.sh

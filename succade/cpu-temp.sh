@@ -4,18 +4,6 @@
 # modernized it, so that it now changes color of foreground to take attention on temps
 #
 
-if [[ -z "$1" ]]; then
-	if [[ $c -lt 50 ]]; then
-		set -- '%{F#fbf1c7}$c°C'
-	elif [[ $c -lt 70 ]]; then
-		set -- '%{F#fabd2f}$c°C'
-	elif [[ $c -lt 90 ]]; then
-		set -- '%{F#fe8019}$c°C'
-	else
-		set -- '%{F#fb4934}$c°C'
-	fi
-fi
-
 c=
 
 case $(uname -s) in
@@ -40,4 +28,12 @@ Linux*)
 	;;
 esac
 
-eval echo "$1"
+if [[ $c -lt 50 ]]; then
+	echo "%{F#fbf1c7}$c°C"
+elif [[ $c -lt 70 ]]; then
+	echo "%{F#fabd2f}$c°C"
+elif [[ $c -lt 90 ]]; then
+	echo "%{F#fe8019}$c°C"
+else
+	echo "%{F#fb4934}$c°C"
+fi
