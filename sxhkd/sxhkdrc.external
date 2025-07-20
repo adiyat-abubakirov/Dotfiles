@@ -12,7 +12,7 @@ super + p
 
 # launch lf
 super + n
-  $HOME/.config/sxhkd/kitty.sh $HOME/.config/lf/lf-kitty
+  $HOME/.config/sxhkd/kitty.sh $HOME/.config/lf/lf-kitty.sh
 
 # launch powermenu.sh
 {XF86PowerOff, Pause}
